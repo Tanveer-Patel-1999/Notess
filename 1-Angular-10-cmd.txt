@@ -1,0 +1,24 @@
+nodecommand
+1: nvm  -v
+2: nvm list
+3: nvm  use 14.17.3
+
+-->nvm( node version manager)
+
+4: node -v
+5: npm -v  ---->(node pacakage manager)
+6: npm i -g @angylar/cli ----->to insatll an angular cli
+7: ng version ----> check cli version
+8: ng new project_name  ---->to create a project
+   --> yes
+   --> ask for routing
+   --> which style sheet want (sccs)
+9: cd project_name ----> go to project
+10: ng serve -----> it is build
+ng
+port number-->4200
+
+----->
+1:go to ingex folder
+2:got html-index-open
+3:new tab localhost:4200

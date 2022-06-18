@@ -1,0 +1,31 @@
+package.json
+-------------
+		-->it contain package information in jso formate.
+		--> first file is generated in angular project.
+		-->it is consist of 5 thing
+			1:name f project----simplecrm
+			2: version
+			3:scripts
+			4:dependecies--> used for production
+			5: devDependencies--> used for development
+
+
+package.json.lock
+------------------
+		-->It take all information of dependencies present in the package.json file
+		--> it lock all package install in your project
+
+
+
+
+semantic version
+---------------
+	---> it is consist of 3 things exm 11.09.01
+		--> first -- major
+		--> second -- minor
+		--> third -- patch
+
+used of till "~" and charet "^" for version update
+--------------------------------------------------
+		till(~) --> used for patch
+		charet(^) --> used for major and minor update

@@ -1,0 +1,65 @@
+Angular CLI - Command Line Interface 
+-------------
+
+	-----------
+    - schematics -> angular.json / package.json 
+	-----------
+        ng serve 
+        ng build
+        ng test 
+        ng lint 
+        ng e2e 
+
+	--------
+    - commands 
+	----------
+
+        ng new <project_name>
+
+        ng generate component <component_name>
+        ng generate module <module_name>
+        ng generate pipe <pipe_name>
+        ng generate directive 
+
+    angular.json 
+
+        demo ----->
+
+            ng serve 
+		    -  compile the appllication
+
+            ng test 
+                - test and run all our unit test scripts (it is open the new page on browser with karma)
+
+            ng e2e 
+                - test and run all our end to end tests 
+
+            ng lint 
+		   - it is used to linting
+
+            ng build 
+                -> build your app and make it ready for production env deployment
+                 -> dist <simpleCRM>
+                    vendor.js
+                    main.js 
+                    style.css
+
+            ng generate 
+            ng g 
+                 components 
+                 pipes
+                 modules 
+                 services 
+                 directives 
+                 applications 
+
+note---> whenver we do  ng serve/build/test
+		--------------------------------
+
+			-->compile your type script code into a java script code is called as "Transpiling".
+			--> it generate  5 files
+					1: main.js
+					2: polyfill.js
+					3: style.js
+					4:runtime.js
+					5:vendor.js

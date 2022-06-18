@@ -1,0 +1,39 @@
+Angular component lifecycle hooks 
+
+1. By default we have ngonit 
+
+2. Whichever lifecycle hooks we want to use
+    1. import it in the class 
+    2. Extend the implements interface 
+    3. Implement the method  
+
+3. We can have any number of lifecycle hooks implemented 
+
+
+    - Component Communication 
+        - Between components 
+            Parent to Child 
+            Child to Parent 
+
+important methos
+1:ngOnInit---initilization purpose
+2:ngonchange
+3:aftercontentinit--
+4:afterviewInit
+5:destroy--- if we want to change the componet that time go for ondestroy
+
+
+order of invoke
+-----------------
+1:constructor()
+2:OnInit()
+3:AfterContentInit()
+4:AfterViewInit()
+5:ondestroy
+
+
+
+
+
+
+ 

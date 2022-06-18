@@ -1,0 +1,110 @@
+---------------------
+1: e2e--->end to end ---it is used for live ur application
+---------------------
+	-it is used to ur website or applicartion on live
+	-(we can monitory everthing how many user are login,seen,visited and  logout)
+	 e2e stands for "end to end", this is the place where we can write the end to end test.
+
+-------------
+2:node_module---(if we want to share the projectnode-model folder have large space we ca delete the folder before sharing and share it..."npm install" command to get the node-model)
+-------------
+	- it ia a package container
+	-it refers the package.jso to recover the node-model folder after apply the npm install commnad in cmd
+	 In this folder, you can find all the third party libraries on which the application may depend. This folder is purely for development.
+
+------
+3:src
+------
+	This folder contains the actual source code for developers. This folder contains 
+
+--------------
+ 1:app folder
+--------------
+	Which contains all the “modules” and “components” of your application. Every application has at least one “module” and one “component”.
+		1:app.routing.module.ts ---> it is used for routing your application 
+
+		2:app.comopent.scss---->stylesheet		--------  |
+		3:app.component.html---->view/ui/html cod		    |
+		4:app.component.spec.ts --->unit test script	    |(local sccs file used for component)
+		5:app.component.ts ----->class file		--------- |
+
+		6:app.module.ts ----> it is by default file created by application(it is root module)
+					-->if user hit url this file first load 
+
+
+
+	-------
+	main.ts  --> it is an entry point to creating your application
+	-------- --> which module should run first decided by main.ts file
+		   --> it is start the booting
+
+------------------------
+flow how internally call	
+------------------------
+				-----------
+				bootstrap
+				-----------
+
+						main.ts--> app.module.ts--> app.component.ts(selector)--> app.component.html--> index.html
+
+
+---------
+index.html --> it is a html file first file to be load
+----------  -->single page applicatio <app.root>
+
+------------
+styles.scss --> it is a golbal scss file
+-----------
+		--> local scss override the golabl scss 
+
+---------------
+2:assets folder
+--------------
+	Where we can store static assets of our application for example images, icons etc.
+
+--------------
+3:environment
+--------------
+
+		-----------------
+		environments.pro.ts --- it is used for production purpose
+		-------------------
+
+		-------------------
+		environments.ts --- it is used for development purpose
+		-------------------
+
+------------
+favicon.icon ---> it is used for project icons
+------------
+
+-------------      ---------------
+polyfills.ts  and  browserslistrc	 --->it support all browser to run your angluar application
+------------	 ----------------
+
+
+--------      --------------
+test.tc  and  karma.conf.js  ---> it is used for testing purpose
+-------       --------------
+
+
+------------
+editorconfig -- it is used for team work
+------------
+
+---------
+gitignor --- the file which arte not added in git repository that file can be store in this file.
+--------
+
+
+-------------
+angular.json  --- we can put the sccs and js and j query refernce link on "style" and "script"
+-------------
+
+-------
+README -it tell u wayto do work 
+------
+
+---------
+tsconfig ---it is not used b developer
+---------

@@ -1,0 +1,38 @@
+----------
+DECORATORS
+-----------
+	1:"@" represent a decorator.
+	2:decorator is a function return a function.
+	3:decorator supply meta-data to angular about particular class,property,value,method etc.
+	4:decorator invoke at run time.
+
+
+---------------------
+some common decorator
+---------------------
+	1:@NgModule() --> defines modules
+	2:@Component()--> define components
+	3:@injectable()--> define services
+	4:@Input() & @Output() -->send and receive data from DOM
+	
+
+------------------
+types of decorator -->they are four types of decorator
+-----------------
+	1:Class decorator:--> @NgModule , @Component
+	2:Property decorator:--> @input , @Output (inside a class)
+	3:Method decorator:--> @HostListner (inside a class)
+	4:Parameter decorator:--> @Inject (inside class constructor)
+
+--------------
+create a service
+-----------------
+		ng g s myservice
+
+	--> it craetes two files
+		1:srvice.spec.ts
+		2:srvice.ts
+
+---->if u craete a service then u have to provide serive name in to model.tc in providers
+
+n got to app.component ---> constructor ---> @Inject ----> serviceclasname ---> vraible name----> pass the var in consol

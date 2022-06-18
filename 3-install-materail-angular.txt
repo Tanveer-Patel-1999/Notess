@@ -1,0 +1,42 @@
+1--> ng add @angular/material
+y
+--->indego-pink
+y
+--->include animation and enable
+y
+
+//add button module
+
+
+got to app.module.ts
+------------------------
+
+2: import{MatButtonModule } from '@angular/material/button';
+
+
+
+3: Add import
+----------
+imports: [
+   			
+		     BrowserModule,
+ -------------   AppRoutingModule,
+  add this--     MatButtonModule,
+--------------   BrowserAnimationsModule
+    			
+  ],
+
+
+
+
+4: go to app.component.html
+--------------------------
+<button mat-button>Primary</button>
+
+or
+	<button mat-button color="primary">Primary</button>
+      <button mat-button color="accent">Accent</button>
+      <button mat-button color="warn">Warn</button>
+
+5:restart the application
+ng serve

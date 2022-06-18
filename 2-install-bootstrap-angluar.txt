@@ -1,0 +1,40 @@
+*******WAY TO INSTALL A BOOTSTARP In ANGULAR10 **********
+---------------------------------------------------------
+
+
+1: fist go to terminal 
+----------------------
+		1:npm install bootstrap jquery popper --save  (v4 vesrion)
+		1:1:npm i bootstrap jquery popper --save    (v5 vesrion)
+
+	use this--->
+-----------------------
+	1:npm install bootsrap --save
+
+
+2: verify  the installiation go to package.json
+---------------------------------------------
+			 "bootstrap": "^5.1.3",
+    			 "jquery": "^3.6.0",
+  			  "popper": "^1.0.1",
+
+3:do no miss this step
+--------------------------
+	update  the angular.json
+	----------------------------------
+
+
+    "styles": [
+              "src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              ],
+
+    "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/popper/index.js",
+              "./node_modules/jquery/dist/jquery.min.js"
+              ]
+
+4:Restart your Application
+--------------------------
+	1:ng serve
