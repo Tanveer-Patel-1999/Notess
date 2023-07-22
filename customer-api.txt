@@ -1,0 +1,142 @@
+resource --> customer
+    create
+    update
+    delete
+    read
+
+
+HTTP -->
+    URL - Uniform Resource Location
+    Method - GET | POST | PUT | DELETE | PATCH
+    Body - data in JSON | XML | Text | binary 
+    Header - [key:value]
+    cookies - [key:value]
+
+    Request --> Response 
+
+    Response Body - data in JSON | XML | Text | binary 
+    Response Header --> Server
+    Response Status - 4xx, 5xx, 3xx, 2xx
+
+
+    GET 
+        URL
+            customerId --> path variable
+            http(s)://<hostname>:<port>/customers/{customerId} 
+            http(s)://<hostname>:<port>/customers/12131
+        No BODY
+    Response        
+        Http Status: 200 Ok
+        {
+            id: 12131,
+            firstName: "",
+            ....
+        }
+    Response Header 
+
+    Response
+                    500 Bad Request 
+            {
+                errorCode: "401",
+                message: "Customer Id 12131 is invalid"
+            }            
+
+    POST 
+        URL
+            http(s)://<hostname>:<port>/customers
+        Body:
+        {
+            firstName: "",
+            email:""
+            ....
+        }
+    Response        
+        Http Status: 200 Ok
+        {
+            id: 12131
+        }
+    Response Header 
+
+    Response
+            500 Bad Request 
+            {
+                errorCode: "401",
+                message: "Customer Email is duplicate"
+            }            
+
+    PUT 
+        URL
+            http(s)://<hostname>:<port>/customers/{customerId}
+        Body:
+        {
+            firstName: "",
+            email:""
+            ....
+        }
+    Response        
+        Http Status: 200 Ok
+        {
+            id: 12131
+        }
+    Response Header 
+
+    Response
+            500 Bad Request 
+            {
+                errorCode: "401",
+                message: "Customer Email is duplicate"
+            }                
+
+    DELETE 
+        URL
+            http(s)://<hostname>:<port>/customers/{customerId}
+
+    Response        
+        Http Status: 200 Ok
+
+    Response
+        500 Bad Request 
+        {
+            errorCode: "401",
+            message: "Customer Id is invalid"
+        }    
+
+
+    PATCH 
+        URL
+            http(s)://<hostname>:<port>/customers/{customerId}
+        Body:
+        {
+            email:""
+        }
+    Response        
+        Http Status: 200 Ok
+        {
+            id: 12131
+        }
+    Response Header 
+
+    Response
+            500 Bad Request 
+            {
+                errorCode: "401",
+                message: "Customer Email is duplicate"
+            }    
+
+
+    Searching customer(s)
+    Alam*    
+
+    GET 
+        Query string 
+        URL http(s)://<hostname>:<port>/customers?firstname=alam&mobile=91829283mobile=93929283&pagesize=25&page=1&sortcolumn=firstname&sortdirection=desc 
+
+        25 rows 
+        500 rows 
+
+        {
+            totalCount:500,
+            items: [
+                {    }, {    }
+            ]
+        }

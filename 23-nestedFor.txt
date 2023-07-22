@@ -1,0 +1,65 @@
+nestedFor
+=========
+
+exm
+====
+
+<!-- grouping of data -->
+<!-- nested ngFor -->
+<h1> grouping of data</h1>
+<!-- array bind -->
+<ul *ngFor="let c of CountryDetails">
+  <li>{{c.Country}}</li>
+  <!-- state bind -->
+  <ul>
+    <!-- binding with main class "c"(varb) is used -->
+    <li *ngFor="let s of c.State">
+      {{s.state}}
+    </li>
+  </ul>
+
+</ul>
+
+----*****************************************************************************************************************************************
+//grouping a data
+  CountryDetails:any[]=[
+    {
+      //one data
+      Country:'India',
+      //array inside an array
+      State : [
+        {
+          state:'Karnataka'
+        },
+        {
+          state:'Maharashtra'
+        },
+        {
+          state:'Goa'
+        },
+        {
+          state:'Koklkata'
+        },
+      ]
+     },
+     {
+
+    //two data
+    Country:'Pakistan',
+    //array inside an array
+    State : [
+      {
+        state:'Krachi'
+      },
+      {
+        state:'Islamabad'
+      },
+      {
+        state:'Jammu'
+      },
+      {
+        state:'Punjab'
+      },
+    ]
+   },
+  ];

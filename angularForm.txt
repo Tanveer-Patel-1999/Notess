@@ -1,0 +1,314 @@
+form
+====
+static /templte driven form
+<!-- first import FromsModel in app.model -->
+<!-- 1 :define a local varaiable and assign #contactForm="ngForm" -->
+<!-- 2 :ngform used for grouping it is grouping when every feild hava ngModel -->
+<!-- 3 :ngModel copy the feild using name and give to the  local variable -->
+<!-- 4 :create a function in form (ngSubmit) and call the function we create fromSub() -->
+<!-- 5 :pass form name in to the function as a parameter -->
+
+
+step
+====
+1:import FormsModule in app.component.html
+2:use form name
+	 <form #basicForm="ngForm" (ngSubmit)="submitData(basicForm)"> 
+
+3:use ngmodel in input n name always present
+**************************************************************************
+4://angular basic form
+  submitData(data:NgForm){
+    console.log(data.value); 
+  }
+
+  <form #basicForm="ngForm" (ngSubmit)="submitData(basicForm)"> 
+    <table>
+      <tr>
+        <td>First Name :</td>
+        <td>
+          <input type="text" [(ngModel)]="firstName"  name="firstName" placeholder="Enter FirstName name">
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name :</td>
+        <td>
+          <input type="text" [(ngModel)]="lastName"  name="lastName" placeholder="Enter Last name">
+        </td>
+      </tr>
+      <tr>
+        <td>Email Id :</td>
+        <td>
+          <input type="eamil" [(ngModel)]="email" name="email" placeholder="Enter user email">
+        </td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="password" [(ngModel)]="password" name="password" placeholder="Enter user password">
+        </td>
+      </tr>
+      <tr>
+        <td>Mob Number :</td>
+        <td><input type="phone" [(ngModel)]="phone" name="phone" placeholder="Enter user number">
+        </td>
+      </tr>
+      <tr>
+        <td>Gender :</td>
+        <td>
+            <input type="radio" value="male"  name="gender" ngModel>Male
+            <input type="radio" value="female" name="gender" ngModel>Female
+        </td>
+     </tr>
+     <tr>
+      <td>Date of Birth :</td>
+      <td>
+          <input type="date" [(ngModel)]="date" >
+      </td>
+    </tr>
+    <tr>
+      <td>Hobbies :</td>
+      <td>
+          <input type="checkbox" [(ngModel)]="term" name="term">java
+          <input type="checkbox"[(ngModel)]="term1" name="term">html
+          <input type="checkbox"[(ngModel)]="term2" name="term">css
+          <input type="checkbox"[(ngModel)]="term3" name="term">script
+      </td>
+      </tr>
+      <tr>
+        <td>Education qulification</td>
+        <td>
+            <select [(ngModel)]="qulification" name="option">
+                <option>select option</option> 
+                <option>SSlc</option> 
+                <option>PUC</option> 
+                <option>Degree</option> 
+            </select>
+        </td>
+    </tr>
+    <tr>
+      <td>Address :</td>
+      <td>
+          <textarea [(ngModel)]="address" name="address" id="" cols="30" rows="10" placeholder="address"></textarea>
+      </td>
+    </tr>
+
+   <tr>
+       <td><input type="submit"></td>
+       <td><input type="reset"></td>
+    </tr>
+       
+ </table>
+ </form> 
+**************************************************************************
+<!-- craete  a from -->
+  <h1>Basic Form</h1>  
+ <!-- basicForm is form name-->
+
+  <form #basicForm="ngForm" (ngSubmit)="submitData(basicForm)"> 
+    <table>
+      <tr>
+        <td>First Name :</td>
+        <td>
+          <input type="text" name="firstName" placeholder="Enter FirstName name" ngModel>
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name :</td>
+        <td>
+          <input type="text"  ngModel  name="lastName" placeholder="Enter Last name">
+        </td>
+      </tr>
+      <tr>
+        <td>Email Id :</td>
+        <td>
+          <input type="eamil"  ngModel name="email" placeholder="Enter user email">
+        </td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="password" ngModel name="password" placeholder="Enter user password">
+        </td>
+      </tr>
+      <tr>
+        <td>Mob Number :</td>
+        <td><input type="phone"  ngModel name="phone" placeholder="Enter user number">
+        </td>
+      </tr>
+      <tr>
+        <td>Gender :</td>
+        <td>
+            <input type="radio" value="male"  name="gender" ngModel>Male
+            <input type="radio" value="female" name="gender" ngModel>Female
+        </td>
+     </tr>
+     <tr>
+      <td>Date of Birth :</td>
+      <td>
+          <input type="date"  ngModel name="date" >
+      </td>
+    </tr>
+    <tr>
+      <td>Hobbies :</td>
+      <td>
+          <input type="checkbox"  ngModel name="term">java
+          <input type="checkbox" ngModel name="term">html
+          <input type="checkbox" ngModel name="term">css
+          <input type="checkbox" ngModel name="term">script
+      </td>
+      </tr>
+      <tr>
+        <td>Education qulification</td>
+        <td>
+            <select  ngModel name="option">
+                <option>select option</option> 
+                <option>SSlc</option> 
+                <option>PUC</option> 
+                <option>Degree</option> 
+            </select>
+        </td>
+    </tr>
+    <tr>
+      <td>Address :</td>
+      <td>
+          <textarea  ngModel name="address" id="" cols="30" rows="10" placeholder="address"></textarea>
+      </td>
+    </tr>
+
+   <tr>
+       <td><input type="submit"></td>
+       <td><input type="reset"></td>
+    </tr>
+       
+ </table>
+ </form> 
+****************************************
+//angular basic form
+  submitData(data:NgForm){
+    console.log(data.value); 
+  }
+
+  //
+  fromSub(val:any)
+  {
+  var data1=val.controls;
+  var name=data1.username.value;
+  var email=data1.email.value;
+  var mobile=data1.mobile.value;
+  console.log(data1)
+  console.log(name+", "+email+", "+mobile);
+  }
+
+*********************************************************
+validatio
+**********************
+<!-- template driven form -->
+<h1>validation form</h1>
+<h1>contact form</h1>
+<!-- first import FromsModel in app.model -->
+<!-- 1 :define a local varaiable and assign #contactForm="ngForm" -->
+<!-- 2 :ngform used for grouping it is grouping when every feild hava ngModel -->
+<!-- 3 :ngModel copy the feild using name and give to the  local variable -->
+<!-- 4 :create a function in form (ngSubmit) and call the function we create fromSub() -->
+<!-- 5 :pass form name in to the function as a parameter -->
+<form #contactForm="ngForm" class="form" (ngSubmit)="fromSub(contactForm.value)">
+  <div class="form-group">
+    <input type="text" name="username" placeholder="Enter user name" required="" #yourName="ngModel" class="form-control" ngModel>
+  </div>
+  <span class="error" *ngIf="yourName.invalid && yourName.touched">Please enter your name</span>
+  <br>
+
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Enter user eamil" required="" #email="ngModel" class="form-control" ngModel>
+  </div>
+  <span class="error" *ngIf="email.invalid && email.touched">Please enter your email ID</span>
+  <br>
+
+  <div class="form-group">
+    <input type="mobile" name="mobile" placeholder="Enter user mobile" required="" #mobile="ngModel" minlength="10" maxlength="12" class="form-control" ngModel>
+  </div>
+  <span class="error" *ngIf="mobile.invalid && mobile.touched">Please enter your phone number</span>
+  <br>
+
+  <div class="form-group">
+    <input type="submit" name="sumbit" [disabled]="contactForm.invalid" class="btn btn-success">
+  </div>
+</form>
+
+
+
+**********************************************
+scss
+***********
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+input.ng-touched.ng-valid{
+    border: 1px solid green;
+}
+.error{
+color: red;
+}
+
+***************************************************
+rest and prefill the data
+**********************
+rest done by two way 
+ 1:<!-- <form #contactForm="ngForm" class="form" (ngSubmit)="fromSub(contactForm.value);contactForm.reset();"> -->
+
+ 2:<input type="reset" name="Reset" class="btn btn-primary" (click)="contactForm.reset();">
+
+----------------------------------
+refill ts
+**************
+//prifill
+  //user record
+  info={
+    username:'Tanveer',
+    email:'tas@gmail.com',
+    mobile:1234567890
+  }
+
+**************
+[ngModel]="info.username"
+[ngModel]="info.email"
+[ngModel]="info.mobile"
+
+***********************************************
+//resetForm
+  // resetForm(formValue:NgForm)
+  // {
+  //   formValue.reset();
+  //   formValue.resetForm();
+  // }
+
+**************************
+ <!-- reset form using methof rest() and resetForm() -->
+
+  <!-- <button class="btn btn-link" (click)="resetForm(contactForm)">Reset Form</button> -->
+<h1>*************************************</h1>
+ <form #contactForm="ngForm" class="form" (ngSubmit)="fromSub(contactForm.value);;contactForm.reset();">
+  <div class="form-group">
+    <input type="text" name="username" placeholder="Enter user name" required="" #yourName="ngModel" class="form-control" ngModel>
+  </div>
+  <span class="error" *ngIf="yourName.invalid && yourName.touched">Please enter your name</span>
+  <br>
+
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Enter user eamil" required="" #email="ngModel" class="form-control" ngModel>
+  </div>
+  <span class="error" *ngIf="email.invalid && email.touched">Please enter your email ID</span>
+  <br>
+
+  <div class="form-group">
+    <input type="mobile" name="mobile" placeholder="Enter user mobile" required="" #mobile="ngModel" minlength="10" maxlength="12" class="form-control" ngModel>
+  </div>
+  <span class="error" *ngIf="mobile.invalid && mobile.touched">Please enter your phone number</span>
+  <br>
+
+  <div class="form-group">
+    <input type="submit" name="sumbit" [disabled]="contactForm.invalid" class="btn btn-success">
+  </div>
+</form>
+
+
+

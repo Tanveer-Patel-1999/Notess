@@ -1,0 +1,30 @@
+Real Time Data
+--------------
+
+-->comopent.ts
+	1:define variable
+	2:create an event
+	3:call the variable in the event
+	4:assing variable ---> event.target.value;
+
+//create a variable
+ourText="";
+
+//create a event
+myText(event: any)
+{
+ 
+ this.ourText = event.target.value;;
+}
+
+
+-->componnet.html
+	1:craete an input
+	2:call (keyup) event in input
+	3:assingn (keyup) event to created event n pass the $event in created event
+	4:used interpolation
+  
+<!-- real time data example -->
+ <h1>Real Time Data</h1>
+  <input type="text" (keyup)="myText($event)">  
+<h4>{{ourText}}</h4>  

@@ -1,0 +1,78 @@
+<form #basicForm="ngForm" (ngSubmit)="submitData(basicForm)"> 
+   <table>
+     <tr>
+       <td>First Name :</td>
+       <td>
+         <input type="text" name="firstName" placeholder="Enter FirstName name" ngModel>
+       </td>
+     </tr>
+     <tr>
+       <td>Last Name :</td>
+       <td>
+         <input type="text"  ngModel  name="lastName" placeholder="Enter Last name">
+       </td>
+     </tr>
+     <tr>
+       <td>Email Id :</td>
+       <td>
+         <input type="eamil"  ngModel name="email" placeholder="Enter user email">
+       </td>
+     </tr>
+     <tr>
+       <td>Password</td>
+       <td><input type="password" ngModel name="password" placeholder="Enter user password">
+       </td>
+     </tr>
+     <tr>
+       <td>Mob Number :</td>
+       <td><input type="phone" maxlength="10" name="phone" pattern="\d{10}" title="Please enter exactly 10 digits" placeholder="9876******" ngModel>
+       </td>
+     </tr>
+     <tr>
+       <td>Gender :</td>
+       <td>
+           <input type="radio" value="male"  name="gender" ngModel>Male
+           <input type="radio" value="female" name="gender" ngModel>Female
+       </td>
+    </tr>
+    <tr>
+     <td>Date of Birth :</td>
+     <td>
+         <input type="date"  ngModel name="date" >
+     </td>
+   </tr>
+   <tr>
+     <td>Hobbies :</td>
+     <td>
+         <input type="checkbox" ngModel name="java">java
+         <input type="checkbox" ngModel name="html">html
+         <input type="checkbox" ngModel name="css">css
+         <input type="checkbox" ngModel name="script">script
+     </td>
+     </tr>
+     <tr>
+       <td>Education qulification</td>
+       <td>
+           <select  ngModel name="option">
+               <option>select option</option> 
+               <option>SSlc</option> 
+               <option>PUC</option> 
+               <option>Degree</option> 
+           </select>
+       </td>
+   </tr>
+   <tr>
+     <td>Address :</td>
+     <td>
+         <textarea  ngModel name="address" id="" cols="30" rows="10" placeholder="address"></textarea>
+     </td>
+   </tr>
+
+  <tr>
+      <td><input type="submit"></td>
+      <td><input type="reset"></td>
+   </tr>
+      
+</table>
+</form> 
+<br>

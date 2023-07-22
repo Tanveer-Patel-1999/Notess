@@ -1,0 +1,54 @@
+Routing link
+=============
+1:It is used to create a link in a template to bind static or dynamic data.
+2:router link can be static or dynamic.
+
+syntax
+========
+static
+======
+<a [roterLink] ="'/edit'"> Edit </a>
+
+dynamic
+=======
+<a [roterLink] ="['/edit',client.id]"> Edit </a>
+
+
+step
+1:create a componet----client
+2:go to app routing---
+
+{
+    path:'clients',
+    component:ClientsComponent
+}
+3:go to client.component.html
+
+<h2>Routing link example</h2>
+<table class="table table-bordered border-success">
+ <thead>
+ <tr>
+   <th>Id</th>
+   <th>FirstName</th>
+   <th>LasttName</th>
+   <th>Static Link</th>
+   <th>Dynamic Link</th>
+ </tr>
+</thead>
+
+<tbody>
+ <tr *ngFor="let client of clientList">
+   <td>{{client.id}}</td>
+   <td>{{client.firstName}}</td>
+   <td>{{client.lastName}}</td>
+   <!-- static link -->
+   <!-- static link always start with slash (/) -->
+   <td><a [routerLink]="'/edit'">Edit</a> | <a [routerLink]="'/delete'">Delete</a></td>  
+   <!-- dynamic link -->
+   <!-- used array [] -->
+   <td><a [routerLink]="['/edit',client.id]">Edit</a> | <a [routerLink]="['/delete',client.id]">Delete</a></td> 
+ </tr>
+</tbody>
+</table>
+
+4:enter a url on browswe:http://loclahost/tanveer/client

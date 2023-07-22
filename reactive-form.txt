@@ -1,0 +1,48 @@
+Reactive form
+------------
+1:imprt reactiveForm into the model
+**********************************************
+ts
+---------------
+
+2://reactive form
+  //create a variable
+  contactForms = new FormGroup({
+    username: new FormControl(''),
+    email: new FormControl(''),
+    mobile: new FormControl(''),
+  });
+
+  addLaon()
+  {
+    console.log(this.contactForms.value)
+  }
+*******************************************
+html
+---------
+
+<h1>Reactive Form</h1>
+<form [formGroup]="contactForms" class="form">
+  
+  <div class="form-group">
+    <input type="text" formControlName="username" placeholder="Enter user name" required=""  class="form-control">
+  </div>
+  <br>
+  
+
+  <div class="form-group">
+    <input type="email" formControlName="email" placeholder="Enter user eamil" required=""  class="form-control" >
+  </div>
+  <br>
+  
+
+  <div class="form-group">
+    <input type="mobile" formControlName="mobile" placeholder="Enter user mobile" required=""  minlength="10" maxlength="12" class="form-control">
+  </div>
+  <br>
+  
+
+  <div class="form-group">
+    <!-- <input type="submit" name="Sumbit"  class="btn btn-success"> -->
+    <button (click)="addLaon()">Add Laon   </button> 
+  </div>

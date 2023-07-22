@@ -1,0 +1,102 @@
+Resturant project
+------------------
+step
+
+1: npm install -g @angular/cli
+
+2: ng new RestaurentApp
+
+3: cd RestaurentApp
+
+4: code .
+
+5: ng s -o   [ compile and run the project ]
+
+6: npm install -g json-server
+
+7:npm install bootstrap --save
+
+5:go to angular.json
+
+"styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss"
+              
+            ],
+
+8:search bootstrp----> got to index.htm--> paste in to <head>
+
+
+9: ng serve
+
+10: clr app.component.html
+
+11: craet a componet
+
+	ng g component <component_name>
+
+
+12:used Jumbotron for lookin best cool
+
+13: craete a modal
+
+14: in a modal body create a form---- from boot starp form
+
+15: import reactive form in the app.module
+
+16: HttpClientModule--->import { HttpClientModule} from '@angular/common/http'  --->app.module
+
+17:Add details form is ready to used
+------------------------------------
+
+18: open new terminal --> npm install -g json-server
+ 				
+19:start a json server---> json-server --watch db.json
+
+20: craete a services-->ng g s shared/api ---->shared is folder and api is service name
+
+21: go to services.tc---> craete crud method ---post,put,get,delete
+
+22: used based url----> http://localhost:3000/posts
+
+23: create a model ---> ng g m restaurent --->initilized the data in the model
+
+24:craete a restaurentmodel object into the componet.ts
+
+25: create a object into the constructor of componet.ts 
+ <tr *ngFor="let data of allRestaurentData ">
+         
+
+<td>{{data.id}}</td>
+          <td>{{data.firstName}}</td>
+          <td>{{data.lastName}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.mobile}}</td>
+          <td>{{data.address}}</td>
+          <td>{{data.services}}</td>
+
+
+-------------------------------------------
+1:create login and singup component in cLI
+
+1:ng g c loging
+
+2:ng g c singup
+
+3:go to app.routing module
+
+4:give the path of the created component ----> 3 component
+
+  {path:'login',component:LoginComponent},
+  {path:'singup',component:SignupComponent},
+  {path:'dash',component:DashComponent}
+
+5:define a null route---> if u enter a wrong path to redirect to which page
+
+  {path:'',redirectTo:'login',pathMatch:'full'},
+
+
+5:make login page
+
+
+

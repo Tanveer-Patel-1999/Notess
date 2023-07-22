@@ -1,0 +1,127 @@
+ngFor
+=====
+1:ngFor is a structural drictives
+2:it change the structure of DOM
+
+3:syntax--><div *ngFor="let <value> of <collection>">......</div>
+=======
+	1:<value>-->variabale name
+	2:<collection>-->array 
+
+local variable
+============
+1:Index
+2:First
+3:Last
+4:Even
+5:Odd
+
+exmp
+====
+<!-- using ngfor -->
+<h1>ngFor Example</h1>
+<ul>
+ <!-- <li *ngFor="let student of Student; let i = index; let f = first; let l = last;
+ let o = odd; let e = even"> -->
+
+ <li *ngFor="let student of Student; first as f; last as l; index as i; even as e; odd as o">
+  {{ i+1 }} - {{ student.firstName}} - {{f}} - {{l}}
+ </li>
+</ul>
+*****************************************************************************
+//ngfor
+//any means accept any type
+//student is a collection
+Student:any[]=[
+  {
+    firstName:'Tanveer',
+    lastName:'Patel'
+  },
+  {
+    firstName:'Anik',
+    lastName:'Patel'
+  },
+  {
+    firstName:'Uttam',
+    lastName:'Singh'
+  },
+  {
+    firstName:'Sameer',
+    lastName:'Shaikh'
+  },
+  {
+    firstName:'Aalam',
+    lastName:'Patel'
+  },
+]
+
+----------------------------------------------------------------------------------
+component.html
+==============
+
+<h1 style="background-color: red">ngFor example</h1>
+<ul>
+  <li
+    class="bg-primary"
+    *ngFor="let contact of contacts; index as i; first as f; last as l"
+  >
+    <div class="bg-secondary" *ngIf="f">This is a first record</div>
+    <div>{{ i }} {{ contact.firstName }} {{ contact.lastName }}</div>
+    <div class="bg-secondary" *ngIf="l">This is a last record</div>
+  </li>
+</ul>
+
+<!-- using table -->
+<p>new table with even and Odd</p>
+<ul>
+  <li
+    class="bg-primary"
+    *ngFor="let contact of contacts; index as i; even as e; odd as o"
+  >
+    <div *ngIf="e" class="bg-primary">
+      {{ i }} {{ contact.firstName }} {{ contact.lastName }}
+    </div>
+
+    <div *ngIf="o" class="bg-secondary">
+      {{ i }} {{ contact.firstName }} {{ contact.lastName }}
+    </div>
+  </li>
+</ul>
+
+=========================================
+componnet.tcs
+======
+  //using for ngfor
+  //creating array inside object
+  contacts = [
+    {
+      firstName: 'Tanveer',
+      lastName: 'Patel',
+      contact: 7996044234,
+    },
+    {
+      firstName: 'Uttam',
+      lastName: 'Singh',
+      contact: 8765897609,
+    },
+    {
+      firstName: 'Sameer',
+      lastName: 'Shaikh',
+      contact: 1234567890,
+    },
+    {
+      firstName: 'Tanveer',
+      lastName: 'Patel',
+      contact: 7996044234,
+    },
+    {
+      firstName: 'Uttam',
+      lastName: 'Singh',
+      contact: 8765897609,
+    },
+    {
+      firstName: 'Sameer',
+      lastName: 'Shaikh',
+      contact: 1234567890,
+    },
+  ];

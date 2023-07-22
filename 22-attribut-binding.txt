@@ -1,0 +1,8 @@
+attribut binding ---one way data bining
+===============
+	syntax
+      ======
+		[attr.attribute_name] =" ' expression ' " ;
+
+important
+ 

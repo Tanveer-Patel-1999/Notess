@@ -1,0 +1,17 @@
+Routing
+=======
+1:Routing is machanism used used bya angular framework to mange the path and routes of angular application.
+2:By using routing we can navigate from one component to another componenet.
+3:routing is SPA---single page application.
+
+
+how Router works
+================
+-->whene user click a url theye are perform 7 step
+1:Parse of url---create a url tree
+2: redirect--it check any redirects should be applied
+3:Identify the routes state----it used routes tree
+4:Guard----work as a guard
+5:resolve---run resolvers
+6:Activate--it activate the angular component to be display the page.
+7:Manage---It manage the nivigation and repeats the process when new url is requested.

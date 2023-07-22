@@ -1,0 +1,159 @@
+services
+--------------
+
+public class EmployeeService {
+    private List<EmployeeEntity> employeeEntities;
+
+    public EmployeeService() {
+        employeeEntities = List.of(
+                new EmployeeEntity(1L, "rushikesh", "kandekar"),
+                new EmployeeEntity(2L, "rakesh", "karpe"),
+                new EmployeeEntity(3L, "ajit", "aher"),
+                new EmployeeEntity(4L, "akash", "karpe"));
+    }
+
+
+    public Employee getEmployee(Long employeeId) {
+        Employee employee = new Employee();
+        EmployeeEntity employeeEntity = null;
+        for (EmployeeEntity ex : employeeEntities) {
+            if (ex.getEmployeeId() == employeeId) {
+                employeeEntity = ex;
+                employee.setFirstName(employeeEntity.getFirstName());
+                employee.setLastName(employeeEntity.getLastName());
+                break;
+            }
+        }
+        return employee;
+       // return employeeEntities.stream().filter(t -> t.getEmployeeId() == employeeId).findFirst().get();
+    }
+
+    public Employee updateEmployee(Long employeeId, Employee employee) {
+        EmployeeEntity employeeEntity = null;
+        for (EmployeeEntity e : employeeEntities) {
+            if (employeeId == e.getEmployeeId()) {
+                e.setFirstName(employee.getFirstName());
+                e.setLastName(employee.getLastName());
+                break;
+            }
+        }
+        return employee;
+    }
+
+
+    public EmployeeResponde creatEmployee(Employee employee) {
+        int employeeId = (int) (Math.random() * 20);
+        EmployeeResponde emp = new EmployeeResponde();
+        emp.setEmployeeId((long) employeeId);
+        log.info("employee Name is {} {}", employee.getFirstName(), employee.getLastName());
+        return emp;
+    }
+
+    public List<EmployeeEntity> getAllEmployees() {
+        return employeeEntities;
+    }
+    public void deleteEmployee(Long employeeId){
+        //employeeEntities.stream().filter(t->t.getEmployeeId()!=employeeId).collect(Collectors.toList());
+        for (EmployeeEntity e:employeeEntities){
+            if (e.getEmployeeId()==employeeId){
+                employeeEntities.remove(employeeId);
+            }
+        }
+        log.info("deleted");
+    }
+    public EmployeeEntity getEmployeeByName( String firstName ,String lastName){
+        Employee employee = new Employee();
+        EmployeeEntity employeeEntity=null;
+        for (EmployeeEntity e : employeeEntities){
+            if(e.getEmployeeId().equals(firstName) && e.getLastName().equals(lastName)){
+                employeeEntity = e;
+            }
+        }
+        return employeeEntity;
+    }
+}
+
+-*************************************
+
+controller
+
+public class EmployeeController {
+    @Autowired
+    private EmployeeService employeeService;
+     /* for allEmployeee */
+    /*@GetMapping(path = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<EmployeeEntity>> getAllEmployees() {
+        List<EmployeeEntity> emp = employeeService.getAllEmployees();
+        return new ResponseEntity<>(emp, HttpStatus.OK);
+    }*/
+    @GetMapping(path = "/employees",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<EmployeeEntity> getEmployeeByName(@RequestParam String firstName ,@RequestParam String lastName){
+        EmployeeEntity emp = employeeService.getEmployeeByName(firstName,lastName);
+        return new ResponseEntity<>(emp,HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/employees/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public ResponseEntity<Employee> getEmployee(@PathVariable Long employeeId) {
+        Employee emp = employeeService.getEmployee(employeeId);
+        return new ResponseEntity<>(emp, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/employees", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<EmployeeResponde> createEmployee(@RequestBody Employee employee) {
+        EmployeeResponde emprs = employeeService.creatEmployee(employee);
+        return new ResponseEntity<>(emprs, HttpStatus.OK);
+    }
+
+    @PutMapping(path = "employees/{employeeId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long employeeId, @RequestBody Employee employee) {
+        Employee eupdate = employeeService.updateEmployee(employeeId, employee);
+        return new ResponseEntity<>(eupdate, HttpStatus.OK);
+    }
+    @DeleteMapping(path = "/employees/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> deleteEmployee(@PathVariable Long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+        return ResponseEntity.noContent().build();
+    }
+
+
+}
+
+**********************************************************************
+entity
+
+
+package com.example.demospring.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class EmployeeEntity {
+   private Long employeeId;
+    private String firstName;
+    private  String lastName;
+}
+
+*******************************************
+
+model 
+
+package com.example.demospring.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data @AllArgsConstructor
+public class Employee {
+    private String firstName;
+    private String lastName;
+
+
+    public Employee() {
+
+    }
+}
+
+

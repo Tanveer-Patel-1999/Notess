@@ -1,0 +1,270 @@
+track by ngfor  :it is used to iprove the performance
+==============
+*********************************************************
+normal *ngFor directive without using the trackBy function
+**********************************************************
+usingIf we use the normal *ngFor directive without using the trackBy function, the Angular application will 
+remove all the DOM elements and will recreate them again in the DOM tree, even if the same data is coming.
+This can slow down our application performance if there's a lot of data
+
+exm---
+<!-- trackby using ngFor -->
+<h3>without using trackby example</h3>
+<table class="table table-bordered border-primary">
+  <thead>
+  <tr>
+    <th>srl.no</th>
+    <th>studentId</th>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>DOB</th>
+    <th>Gender</th>
+    <th>Course</th> 
+  </tr>
+ </thead>
+
+ <tbody>
+  <tr *ngFor="let s of Students; index as i">
+    <td>{{i+1}}</td>
+    <td>{{s.studentId}}</td>
+    <td>{{s.firstName}}</td>
+    <td>{{s.lastName}}</td>
+     <td>{{s.DOB}}</td>
+    <td>{{s.gender}}</td>
+    <td>{{s.course}}</td> 
+  </tr>
+ </tbody>
+</table>
+<br>
+ <!-- get a record -->
+<!-- all periovous data is remove  -->
+<button (click)="getmorestudents()">Get Recordes</button>
+<br><br>
+**************************************************************************
+usingIf we use the normal *ngFor directive with using the trackBy
+***************************************
+usingIf we use the normal *ngFor directive using the trackBy function, the Angular application will 
+not remove all the DOM elements and will not recreate them again in the DOM tree, even if the same data is coming.
+This can fast down our application performance if there's a lot of data
+
+//trackby using ngfor
+  Students: any[];
+  //craete a constructor
+  constructor() {
+    //assing the values
+    this.Students = [
+      {
+        studentId: 1,
+        firstName: 'Tanveer',
+        lastName: 'patel',
+        DOB: '08/09/1989',
+        gender: 'male',
+        course: 'java',
+      },
+      {
+        studentId: 2,
+        firstName: 'rida',
+        lastName: 'patel',
+        DOB: '07/09/1999',
+        gender: 'female',
+        course: 'sql',
+      },
+      {
+        studentId: 3,
+        firstName: 'anik',
+        lastName: 'patel',
+        DOB: '18/09/1998',
+        gender: 'male',
+        course: 'sql',
+      },
+      {
+        studentId: 4,
+        firstName: 'asif',
+        lastName: 'patel',
+        DOB: '28/06/1989',
+        gender: 'male',
+        course: 'html',
+      },
+    ];
+  }
+  // create a functon for get a record from button trackby
+  getmorestudents(): void {
+    this.Students = [
+      {
+        studentId: 1,
+        firstName: 'Tanveer',
+        lastName: 'patel',
+        DOB: '08/09/1989',
+        gender: 'male',
+        course: 'java',
+      },
+      {
+        studentId: 2,
+        firstName: 'rida',
+        lastName: 'patel',
+        DOB: '07/09/1999',
+        gender: 'female',
+        course: 'sql',
+      },
+      {
+        studentId: 3,
+        firstName: 'anik',
+        lastName: 'patel',
+        DOB: '18/09/1998',
+        gender: 'male',
+        course: 'sql',
+      },
+      {
+        studentId: 4,
+        firstName: 'asif',
+        lastName: 'patel',
+        DOB: '28/06/1989',
+        gender: 'male',
+        course: 'html',
+      },
+      {
+        studentId: 5,
+        firstName: 'asiya',
+        lastName: 'patel',
+        DOB: '28/06/1929',
+        gender: 'male',
+        course: 'css',
+      },
+    ];
+  }
+
+
+
+
+***********************************************************************************************
+using track by id we only get how much record u want to retrive it doest not 
+
+*******************************************************
+example
+-----------
+
+<!-- using trackby -->
+<h3>trackby example</h3>
+<table class="table table-bordered border-primary">
+  <thead>
+  <tr>
+    <th>srl.no</th>
+    <th>studentId</th>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Course</th> 
+  </tr>
+ </thead>
+
+ <tbody>
+  <tr *ngFor="let s of Students; index as i;trackBy:trackbyestudentId">
+    <td>{{i+1}}</td>
+    <td>{{s.studentId}}</td>
+    <td>{{s.firstName}}</td>
+    <td>{{s.lastName}}</td>
+     <td>{{s.age}}</td>
+    <td>{{s.gender}}</td>
+    <td>{{s.course}}</td> 
+  </tr>
+ </tbody>
+</table>
+<br>
+
+<!-- get a record -->
+<!-- all periovous data is remove  -->
+<button (click)="getmorestudents()">Get Recordes</button>
+
+
+******************************************************************************************************
+//trackby using ngfor
+  Students: any[];
+  //craete a constructor
+  constructor() {
+    //assing the values
+    this.Students = [
+      {
+        studentId: 1,
+        firstName: 'Tanveer',
+        lastName: 'patel',
+        DOB: '08/09/1989',
+        gender: 'male',
+        course: 'java',
+      },
+      {
+        studentId: 2,
+        firstName: 'rida',
+        lastName: 'patel',
+        DOB: '07/09/1999',
+        gender: 'female',
+        course: 'sql',
+      },
+      {
+        studentId: 3,
+        firstName: 'anik',
+        lastName: 'patel',
+        DOB: '18/09/1998',
+        gender: 'male',
+        course: 'sql',
+      },
+      {
+        studentId: 4,
+        firstName: 'asif',
+        lastName: 'patel',
+        DOB: '28/06/1989',
+        gender: 'male',
+        course: 'html',
+      },
+    ];
+  }
+  // create a functon for get a record from button trackby
+  getmorestudents(): void {
+    this.Students = [
+      {
+        studentId: 1,
+        firstName: 'Tanveer',
+        lastName: 'patel',
+        DOB: '08/09/1989',
+        gender: 'male',
+        course: 'java',
+      },
+      {
+        studentId: 2,
+        firstName: 'rida',
+        lastName: 'patel',
+        DOB: '07/09/1999',
+        gender: 'female',
+        course: 'sql',
+      },
+      {
+        studentId: 3,
+        firstName: 'anik',
+        lastName: 'patel',
+        DOB: '18/09/1998',
+        gender: 'male',
+        course: 'sql',
+      },
+      {
+        studentId: 4,
+        firstName: 'asif',
+        lastName: 'patel',
+        DOB: '28/06/1989',
+        gender: 'male',
+        course: 'html',
+      },
+      {
+        studentId: 5,
+        firstName: 'asiya',
+        lastName: 'patel',
+        DOB: '28/06/1929',
+        gender: 'male',
+        course: 'css',
+      },
+    ];
+  }
+
+//using track bye
+  trackbyestudentId(index: number, students: any): string {
+    return students.studentId;
+  }

@@ -1,0 +1,18 @@
+read value form reactive form
+=============================
+they are three ways
+
+//craete a method
+  addLaon() {
+    //1 :get the value of entire form
+    // console.log(this.addLoanTypeForm.value);
+
+    //2 :get the value of specific form
+    console.log(this.addLoanTypeForm.get('loanType')?.value)
+
+    //3 :get value on changes
+    this.addLoanTypeForm.valueChanges.subscribe(data =>
+    {
+      console.log(data);
+    })
+  }

@@ -1,0 +1,99 @@
+ ngClass 
+==========
+
+1. ngClass is a directive used for setting the class name of DOM elements 
+
+2. we can provide more than 1 class names using ngClass 
+    -> we can re-use the code for multiple DOM elements 
+
+3. We can pass strings ---> (ng class with string)
+
+4. we can pass array values ---> (ng class with array)
+
+5. we can pass objects  ---> (ng class with objects)
+
+6.ng class with component method
+
+6. Common mistakes 
+    - Not writing in correct qoutes 
+    - not putting ngClass in square brackets 
+    - using quotes for variables
+
+hands-on examples:
+
+1. <div [ngClass]="'c1'">This is ngClass example</div>
+
+2. <div [ngClass]="'c1 c2 c3 c4'">This is ngClass Multiple classes example</div>
+
+3. <div [ngClass]="styleClsProp">This is ngClass using dynamic variable example</div>
+
+4. <div [ngClass]="conditionClsProp === 'c4'? 'c4' : 'c5'">This is ngClass using conditional check example</div>
+
+5. <div [ngClass]="{c4: true, c5: false}">This is ngClass using Object example</div>
+
+6.<div [ngClass]="myClassName()">This is ngClass method example</div>
+
+***************************************************************************
+example
+<!-- ng class example -->
+<h1>ng class example as a string</h1>
+<!-- ng class as a string -->
+<p [ngClass]="'one two'">using ng class with String example</p>
+
+  <!-- using for loop -->
+<div *ngFor="let u of users" [ngClass]="'three four'">
+  {{u}}
+</div>
+
+<!-- ngClass with array -->
+ <p [ngClass]="['three','two']">using ng class with Array example</p>
+
+ <!-- ngClass with array-->
+ <p [ngClass]="{'one' :true,'three':false}">using ng class with Object example</p>
+
+ <!-- ngClas with Component method -->
+ <div [ngClass]="getCssClass('mode')">using ng class with component method example</div>
+</div>
+
+**********************************************************************
+
+//ng class example
+
+  //ng class as string
+  users=[
+    'Tanveer',
+    'Anik',
+    'Asif'
+  ];
+
+  //ngClas with Component method
+  getCssClass(flag:string)
+  {
+    //variable
+    let cssClass;
+
+    if(flag=="mode")
+    {
+      cssClass= 
+      {
+        'one':true,
+        'two':true
+      }
+    }
+      else 
+      {
+        cssClass= 
+       {
+        'one':false,
+        'two':true
+       }
+
+      }
+      return cssClass;
+
+    }
+
+  }
+
+
+6. Try out the method returning class name to [ngClass]

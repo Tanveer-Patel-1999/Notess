@@ -1,0 +1,90 @@
+form-array-in-reactive-form
+============================
+define:
+
+we have a form and we have dynamic adding formControls to our form
+
+formArray:-->define
+-----
+	-it is an array
+	-formControl
+	-form group
+	-formArray
+	-we can have combination of above abstract
+
+
+
+	 Form :-->example
+--------------------
+		Add Address-->click a link
+			Multiple Address
+				Multiple Addresses
+					Adress 1
+					Adress 1
+					State
+					City
+					ZipCode
+
+
+
+
+skil : new FormArray([
+        new FormControl(null)
+      ])
+    });
+
+**************************************
+
+
+
+<tr class="form-group">
+      <td>Skills :</td>
+      <td>
+        <div formArrayName="skil">
+          <div
+            *ngFor="
+              let skill of addLoanTypeForm.get('skil')['controls'];
+              index as i
+            "
+          >
+            <input
+              type="text"
+              placeholder="add skills.."
+              formControlName="{{ i }}"
+            />
+          </div>
+          <br>
+             <button (click)="addSkill()">+ ADD SKILL</button>  
+        </div>
+      </td>
+    </tr>
+---------------------------------------------------------------
+form array using form group
+==================================
+
+//formarry using form group
+      skil : new FormArray([
+        this.fb.group({
+          'firstName' : new FormControl('TANVEER'),
+          'lastName' : new FormControl('PATEl'),
+          'dept' :new FormControl('cse')
+        })
+      ])
+
+
+***********************************
+
+    <tr class="form-group">
+      <td>Information :</td>
+      <div formArrayName="skil">
+      <td>
+         <div *ngFor="let skill of addLoanTypeForm.get('skil')['controls'];index as i;" [formGroupName]="i">
+          <input type="text" placeholder="firstName" formControlName="firstName"> 
+          <input type="text" placeholder="lastName" formControlName="lastName">
+          <input type="text" placeholder="dept" formControlName="dept"> -->
+        
+     </div> 
+    </td>
+    </div>
+    
+    </tr>

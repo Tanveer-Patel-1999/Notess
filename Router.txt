@@ -1,0 +1,18 @@
+Angular Router
+==============
+1:it is
+
+
+
+http://localhost:4200/loans(addLoan:add)
+----------
+loan works!
+
+add-loans works!
+
+http://localhost:4200/(addLoan:add) ----------->add-loans works!
+
+
+======================
+query param
+http://localhost:4200/tanveer/search?id=10&color=red&size=large&priceFrom=2000&priceTo=5000

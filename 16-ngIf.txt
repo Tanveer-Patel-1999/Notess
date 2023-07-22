@@ -1,0 +1,152 @@
+ngIf :-->we can add n remove html element in the DOM layout
+==== 
+
+1. It will always have * astrisk symobl 
+2. Built in structural directive 
+3. The ngIf condition will evaluate the expression and result true or false 
+4. We can use OR (||), And ( &&) and we can also use NOT(!) operators inside ngIf
+
+5. We can have multiple use cases 
+
+    - ngIf -> done
+        -> logical opeartors 
+            OR (||)
+            AND (&&)
+            NOT (!)
+    - ngIf else -> 
+    - ngIf then else 
+
+syntax :--> <div *ngIf="condition">.....</div>
+=======
+
+exmp
+===
+//ngIF
+  isValid:boolean = true;
+  changeValue(valid: boolean)
+  {
+    this.isValid=valid;
+
+  }
+=====================================
+  <!-- ngIf -->
+  <h4>ngIf Example</h4>
+  <!-- radio button -->
+  <input type="radio" name="radio1" (click)="changeValue(true)">True
+  <input type="radio" name="radio1" (click)="changeValue(false)">False
+
+  <div class="a" *ngIf="isValid">
+    This is valid data
+  </div>
+
+  <div class="a" *ngIf="!isValid">
+    This is not valid data
+  </div>
+
+*******************************************************************************************************************************************************
+syntax :--> <div *ngIf="condition; else elseBlock">.....</div>
+=======     <ng-template #elseBlock>.....</ng-template>
+-->for elseblock we used ng-template
+
+exm
+===
+ //ngIf else
+  issValid:boolean=true;
+  changeValue1(valid1: boolean)
+  {
+    this.issValid=valid1;
+
+  }
+================================
+<h4>ngIf with else Example</h4>
+   <!-- radio button -->
+   <input type="radio" name="radio2" (click)="changeValue1(true)">True
+   <input type="radio" name="radio2" (click)="changeValue1(false)">False
+ 
+   <div class="a" *ngIf="issValid; else notvalid">
+     This is valid data
+   </div>
+   <ng-template #notvalid>
+   <div class="a" >
+     This is not valid data
+   </div>
+  </ng-template>
+*********************************************************************************************************************************************************
+syntax :--> <div *ngIf="condition; then thenBlock else elseBlock">.....</div>
+            <ng-template #thenBlock>.....</ng-template>
+		<ng-template #elseBlock>.....</ng-template>
+
+--->if condition is true thenblock is execute
+--->if condition is false elseblock is execute
+
+
+exmple
+=======
+
+//ngIf then and else
+  isssValid:boolean=true;
+  changeValue2(valid2: boolean)
+  {
+    this.isssValid=valid2;
+
+  }
+
+
+<h4>ngIf with then and else Example</h4>
+  <!-- radio button -->
+  <input type="radio" name="radio3" (click)="changeValue2(true)">Yes
+  <input type="radio" name="radio3" (click)="changeValue2(false)">No
+
+  <div class="a" *ngIf="isssValid; then thenBlock; else else1Block">
+    if block is execute
+  </div>
+  <ng-template #thenBlock>
+    <div class="a" >
+      Then block is execute
+    </div>
+    </ng-template>
+    <ng-template #else1Block>
+      <div class="a" >
+        else block is execute
+      </div>
+      </ng-template>
+***********************************************************************************************************************************************************************
+	
+==========================================================================
+example
+<!-- ngIf example -->
+<div style="background-color: pink;" *ngIf="sucess_msg">user add scussesfully</div>
+<br>
+<!-- using bootstrap bg-primary -->
+<div class="bg-primary" *ngIf="sucess_msg1">user add scussesfully</div>
+<br>
+<!-- using and operator -->
+<div class="bg-primary" *ngIf="sucess_msg && sucess_msg1">user add scussesfully</div>
+<br>
+<!-- using and operator -->
+<div class="bg-primary" *ngIf="sucess_msg || sucess_msg1">user add scussesfully</div>
+<br>
+<!-- using and operator -->
+<div class="bg-primary" *ngIf="!sucess_msg">user add scussesfully</div>
+<br>
+
+<!-- using and else -->
+<div class="bg-primary" *ngIf="sucess_msg; else error_msg">user add scussesfully</div>
+
+<ng-template class="bg-primary" #error_msg>
+    user was not added..!
+</ng-template>
+<br>
+
+<!-- using and then it directyly go to update -->
+<div class="bg-primary" *ngIf="sucess_msg; then update_msg; else error_msg">user add scussesfully</div>
+
+<ng-template class="bg-primary" #update_msg>
+    user was updated..!
+</ng-template>
+<br>
+
+<ng-template class="bg-primary" #error_msg>
+    user was not added..!
+</ng-template>
+<br>

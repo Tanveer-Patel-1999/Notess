@@ -1,0 +1,225 @@
+Pipes
+=====
+html
+===========
+<!-- pipes -->
+===================== =
+1:pipes are used to transfer the data
+2:pipes will take data input and transfer into a desired formate
+3:pipes are written using the pipe operator (|)
+
+
+types of pipes
+===========
+1:Built in pipes
+====================
+ 1:lowercase
+ 2:uppercase
+ 3:date
+ 4:currency
+ 5:percent
+ 
+
+=============================
+2:parameterized pipes: we can pass one or more parameter to pipes
+===============================
+
+3:chaining pipes :using multiple pipes on a data input is called chaining pipes.we can pass one or more pipes to a data input exam: {{dob | date | uppercase }}
+============================
+
+4:json pipes :covert the data into json formate using json pipes
+=============
+syntax: {{expression : json}}
+
+=======================================
+
+5:custom pipe :we an create our own custom pipes for various data formating
+=============
+
+steps:
+1:craete a pipe-------->ng g pipe mypipe --flat
+
+
+<!-- angular built-in pipes -->
+<h1 >angular built-in pipes</h1>
+<div class="bg-success">
+  <!-- {{<input> | pipes}} -->
+  <h2>{{lowerCaseExample | lowercase}}</h2>
+  <br>
+  <h2>{{upperCaseExample | uppercase}}</h2>
+  <br>
+  <h2>{{dateExample | date}}</h2>
+  <br>
+  <h2>{{currencyExample | currency}}</h2>
+  <br>
+  <h2>{{percentExample | percent }}</h2>
+  <br>
+  <h2>{{jsonExample | json }}</h2>
+</div>
+
+
+<!-- parameterized pipes -->
+<h1 >angular parameterized pipes</h1>
+<div>
+  <!-- date parametrized -->
+  <h1>Date</h1>
+  <h4>Short={{dateExample | date : 'short'}}</h4>
+  <br>
+  <h4>Long={{dateExample | date : 'long'}}</h4>
+  <br>
+  <h4>Medium={{dateExample | date : 'medium'}}</h4>
+  <br>
+  <h4>Full={{dateExample | date : 'full'}}</h4>
+  <br>
+  <h4>ShortDate={{dateExample | date : 'shortDate'}}</h4>
+  <br>
+  <h4>MediumDate={{dateExample | date : 'mediumDate'}}</h4>
+  <br>
+  <h4>LongDate={{dateExample | date : 'longDate'}}</h4>
+  <br>
+  <h4>FullDate={{dateExample | date : 'fullDate'}}</h4>
+  <br>
+  <h4>LongTime={{dateExample | date : 'longTime'}}</h4>
+  <br>
+  <h4>ShortTime={{dateExample | date : 'shortTime'}}</h4>
+  <br>
+  <h4>MediumTime={{dateExample | date : 'mediumTime'}}</h4>
+  <br>
+  <br><h4>FullTime={{dateExample | date : 'fullTime'}}</h4>
+  <br>
+  <br><h4>{{dateExample | date : 'MMM-dd-yyyy'}}</h4>
+  <br>
+
+  <!-- currency -->
+  <h1>currency</h1>
+  <h5>INR={{currencyExample | currency : 'INR'}}</h5><br>
+  <h5>USD={{currencyExample | currency : 'USD'}}</h5><br>
+  <h5>CAD={{currencyExample | currency : 'CAD'}}</h5><br>
+  <h5>AED={{currencyExample | currency : 'AED'}}</h5><br>
+
+
+<!-- percent built in parametrized pipes -->
+
+<div >
+  <h4>{{percentExample | percent : '2.1-1'}}</h4>
+  </div>
+
+<!-- Chaining of pipes -->
+
+ <h3>Chaining </h3>
+
+<div class="bg-primary">{{dateExample | date |uppercase}}</div><br>
+
+ <div class="bg-secondary">{{currencyExample | currency : 'CAD' |lowercase}}</div> <br>
+
+<!-- json pipes example -->
+ <h2>Json pipe example</h2>
+ <h6>
+ <div>{{jsonExample | json}}</div>
+</h6>
+ <br>
+ <!-- using slice  -->
+ <div class="b">{{jsonExample |slice:2:3| json}}</div>
+ <br>
+
+ <!-- custom pipe -->
+ <h2>custom pipes example</h2>
+ <table class="table table-bordered border-success">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>FirstName</th>
+    <th>Gender</th>
+    <th>Salary</th>
+    <th>Profile</th>
+
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor="let emp of employees">
+    <td>{{emp.code}}</td>
+    <td>{{emp.firstName | mypipe:emp.gender }}</td>
+    <td>{{emp.gender}}</td>
+    <td>{{emp.salary}}</td>
+    <td>{{emp.exp | mypipe2:emp.exp}}</td>
+  </tr>
+</tbody>
+ </table>
+</div>
+
+======================================
+component.ts
+==================
+//built-in pipes
+  lowerCaseExample = 'TANVEER';
+
+  upperCaseExample = 'karoshi';
+
+  dateExample = Date.now();
+
+  currencyExample = 30;
+
+  percentExample = 0.78;
+
+  //json pipes 
+  //create a expression
+  jsonExample = [
+    {
+      id:1,
+      firstName: 'Tanveer',
+      lastName: 'Patel',
+    },
+    {
+      id:2,
+      firstName: 'Uttam',
+      lastName: 'Singh',
+    },
+    {
+      id:3,
+      firstName: 'Sameer',
+      lastName: 'Shaikh',
+    },
+    {
+      id:4,
+      firstName: 'Saurabh',
+      lastName: 'Kandekar',
+    },
+  ];
+  //custom pipes
+  employees:any=[
+    {
+      code:'01',firstName:'Tanveer',gender:'M',salary:600000,exp:2
+    },
+    {
+      code:'02',firstName:'Rida',gender:'F',salary:500000,exp:5
+    },
+    {
+      code:'03',firstName:'Anik',gender:'M',salary:800000,exp:10
+    },
+    {
+      code:'04',firstName:'Asiya',gender:'F',salary:200000,exp:8
+    },
+    {
+      code:'05',firstName:'Asif',gender:'M',salary:100000,exp:1
+    },
+  ];
+
+===============================================================================
+custom pipes
+======
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'mypipe'
+})
+export class MypipePipe implements PipeTransform {
+
+  transform(value: string, gender:string): string {
+    if(gender.toUpperCase()=="M")
+    return "Mr."+value;
+    else
+    return "Miss."+value;
+  }
+
+}

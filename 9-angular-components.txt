@@ -3,6 +3,9 @@
 defination
 -----------
 		it is a peace of code which perform a particular task
+
+
+note--> if u create a component if u want to use this component in ur app.html thta time u used selctor of that component
 2. Authentication Module 
     - new-user 
     - login 

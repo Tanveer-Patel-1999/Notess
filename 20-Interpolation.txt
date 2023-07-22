@@ -1,0 +1,93 @@
+Interpolation -->{{ }}
+==============
+ 
+defin--> we can take value from component.ts  to component.html we used interpolation.
+ 
+--note : we can to used datatype and function keyword can not be used.
+======
+ ---> interpolation used for this
+1:variable
+2:function
+3:Object
+4:Array
+5:Arithamtic Operation
+6:get current url location
+
+
+app.component.ts
+=================
+export class AppComponent {
+  title = 'MyApp';
+  //variable subheading we can not used datatype
+  subheading = 'practice work';
+
+  //function keyword can not used in angular
+  getName()
+  {
+    var name = "Tanveer";
+    return name;
+  }
+
+  //creating object
+  address={
+    state:'Karnataka',
+    city:'Chikodi',
+    dist:'belgaum',
+    pin:'591226'
+  }
+
+  //creating an array  using interpolation
+  arr=['A','B',1]
+
+  //arthimatic operation
+  a = 10;
+  b = 20;
+
+
+  //current page url get
+  currentUrl=window.location.href;
+}
+
+============================================
+exm:-->app.component.html
+=============ss
+
+<!-- variable using interpolation -->
+
+<h3 class="bg-secondary">{{ subheading }}</h3>
+<h1>{{ getName() }}</h1>
+
+<!-- object using interpolation -->
+
+<h2 class="bg-secondary">address
+City:{{address.city}}
+<br>
+State:{{address.state}}
+<br>
+Dist:{{address.dist}}
+<br>
+Pin:{{address.pin}}
+<br>
+</h2>
+
+<!-- array using interpolation -->
+
+<h1 class="bg-primary">Array
+    <h1>{{arr[0]}}</h1>
+    <h1>{{arr[1]}}</h1>
+    <h1>{{arr[2]}}</h1>
+</h1>
+
+<!-- Arithamtic operation using interpolation -->
+<h1 style="background-color: yellow;">Arithamtic
+    <h2 >Add:{{a+b}}</h2>
+    <h2>Sub:{{a-b}}</h2>
+    <h2>Mul:{{a*b}}</h2>
+    <h2>Div:{{a/b}}</h2>
+    <h2>Mod:{{a%b}}</h2>
+</h1>
+
+<!-- current page url using interpolation -->
+<h4 style="background-color: purple;">{{currentUrl}}</h4>
+
+

@@ -1,0 +1,32 @@
+value-chnages-in-reactive-form
+================================
+
+ts
+---------------------------------------
+single feild
+---------------------------------
+
+	 //valuechanges implent the method automatically
+  TrackLoanName(){
+    this.addLoanTypeForm.get('loanName').valueChanges.subscribe((param) => {
+      console.log("value changed");
+
+    })
+    
+  }
+----------------------------------------------
+entire form
+----------------------
+TrackLoanName(){
+    this.addLoanTypeForm.valueChanges.subscribe((param) => {
+      console.log("value changed");
+
+    })
+    
+  }
+--------------------------------------------
+
+**************************************************
+
+html
+	 <input type="text" formControlName="loanName" (keyup)="TrackLoanName()">

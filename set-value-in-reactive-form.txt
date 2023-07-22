@@ -1,0 +1,51 @@
+set value in reactive form
+===========================
+	they are two-three ways
+
+1:set the value of entire form in one go
+========================================
+
+
+exm:
+	this.addLoanTypeForm = this.fb.group({
+      loanName: new FormControl('Tanveer'),
+      loanType: new FormControl('personal loan'),
+      loanDescription: new FormControl('loan application'),
+    })
+
+2:setting the form value using "setvalue" : craete a obj and pass in the method
+=========================================
+		exm:
+
+    //craete a object for setvalue
+    const loanObj = {
+      loanName : 'Tanveer loan',
+      loanType : 'personal loan',
+      loanDescription : 'This is loan application'
+    }
+    //using setValule
+    this.addLoanTypeForm.setValue(loanObj);
+  }
+
+note: u have to provide all the value in the object otherwise we will get the error
+
+
+3:setting the form value using "setvalue" : craete a obj and pass in the method
+==========================================
+
+		exm:
+		 
+		//craete a object for setvalue
+    const loanObj = {
+      loanName : 'Tanveer loan',
+      loanType : 'personal loan',
+     
+    }
+   
+    //2 :using patchValue method
+    this.addLoanTypeForm.patchValue(loanObj);
+  }
+
+note : u have to not provide all the value i will run
+
+		

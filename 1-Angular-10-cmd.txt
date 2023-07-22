@@ -1,10 +1,10 @@
 nodecommand
+
 1: nvm  -v
 2: nvm list
 3: nvm  use 14.17.3
 
 -->nvm( node version manager)
-
 4: node -v
 5: npm -v  ---->(node pacakage manager)
 6: npm i -g @angylar/cli ----->to insatll an angular cli

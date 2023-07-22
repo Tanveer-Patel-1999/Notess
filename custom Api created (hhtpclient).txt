@@ -1,0 +1,14 @@
+//custom Api created 
+import {InMemoryDbService, RequestInfo} from 'angular-in-memory-web-api';
+
+export class TestData implements InMemoryDbService{
+    createDb() {
+        let bookDetails = [
+            {id:100, bookname:'angular by Tanveer', category:'Angular'},
+            {id:101, bookname:'angular by Tanveer1', category:'Angular1'},
+            {id:102, bookname:'angular by Tanveer2', category:'Angular2'}
+
+    ];
+    return{books:bookDetails};
+}
+}

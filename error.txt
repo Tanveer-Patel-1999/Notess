@@ -1,0 +1,41 @@
+public class CourseServices implements CourseServiceInter {
+    public List<Courses> list;
+
+    //create a constructor
+    public CourseServices() {
+        list = new ArrayList<>();
+        list.add(new Courses(1, "Java", "This is core java course"));
+        list.add(new Courses(2, "Spring", "This is Spring course"));
+        list.add(new Courses(3, "Html", "This is Html course"));
+        list.add(new Courses(4, "Angular", "This is Angular course"));
+
+    }
+
+
+    @Override
+    public List<Courses> getAllCourse() {
+        return list;
+    }
+**************************************************************
+@GetMapping("/courses")
+    public List<Courses> getAllCourse() {
+        List<Courses> courses = new ArrayList<>();
+        return courseServices.getAllCourse();
+    }
+
+
+   *************************
+
+@PostMapping("/courses")
+    public Courses createCourses(@RequestBody Courses courses) {
+        return courseServices.createCourses(courses);
+
+    }
+
+*********************************
+ @Override
+    public Courses createCourses(Courses courses) {
+
+        list.add(courses);
+        return courses;
+    }

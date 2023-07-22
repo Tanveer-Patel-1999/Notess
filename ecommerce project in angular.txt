@@ -1,0 +1,113 @@
+ecommerce project in angular
+-------------------------------------
+A:Setting new Angular application
+----------------------------------
+
+1:npm -v
+
+2:node -v
+
+3:npm install -g @angular/cli
+
+4:ng new <project Name>
+
+5:cd project Name
+
+6:ng serve -o ----->run on //localhost:42000
+
+-------------------------------------------------
+B:setup mock Api--->json placeholder
+----------------------------------------------------
+
+1:search---->json placeholder--->copy
+
+{
+    "posts" : [
+        { "id":1, "title":"post 1"},
+        { "id":2, "title":"post 2"},
+        { "id":3, "title":"post 3"}
+    ],
+
+    "comments" : [
+        { "id":1, "body":"some comment", "postId":1},
+        { "id":2, "body":"some comment", "postId":2}
+    ],
+
+    "profile":{
+        "name":"typicode"
+    }
+        
+}
+
+2:create a folder in assest--->data
+
+3:create a file inside data --->db.json --->copy above data
+
+4:npm install --save json-serve   ---> install json server
+
+5:cd \src\assets\data
+
+6:json-server --watch db.json --->run the json server----> http://localhost:3000
+
+7:modify
+
+[
+  {
+    "id": 1,
+    "name": "shirt1",
+    "category_id": 5,
+    "description": "desciption here",
+    "price": 1000,
+    "is_available": true,
+    "rating": 4,
+    "review": 140,
+    "vendor name": "TAS Shop",
+    "waranty": 1
+  },
+  {
+    "id": 2,
+    "name": "shirt2",
+    "category_id": 3,
+    "description": "desciption here",
+    "price": 1500,
+    "is_available": true,
+    "rating": 8,
+    "review": 1550,
+    "vendor name": "xyz Shop",
+    "waranty": 1
+  },
+  {
+    "id": 3,
+    "name": "shirt3",
+    "category_id": 4,
+    "description": "desciption here",
+    "price": 1000,
+    "is_available": true,
+    "rating": 5,
+    "review": 140,
+    "vendor name": "mno Shop",
+    "waranty": 1
+  }
+]
+
+--------------------------------------------------------
+C:install bootstrap and jquery
+-------------------------------------------------------
+
+1:npm install --save bootstrap
+
+2:npm install --save jquery
+
+3:modify angular.json
+
+ "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+
+
+

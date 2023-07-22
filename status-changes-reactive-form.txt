@@ -1,0 +1,23 @@
+status-changes-reactive-form
+=============================
+
+ts
+------------------------------------
+for a particular feild
+----------------------------------
+
+//status changes
+    this.addLoanTypeForm.get('loanName').statusChanges.subscribe((data) =>
+    {
+      console.log(data);
+    })
+
+*************************
+------------------------------------
+for a particular form
+----------------------------------
+//status changes
+    this.addLoanTypeForm.statusChanges.subscribe((data) =>
+    {
+      console.log(data);
+    })

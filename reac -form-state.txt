@@ -1,0 +1,27 @@
+react form state
+================
+
+<tr class="form-group">
+         <td>Laon Name : </td>
+         <td>
+            <input type="text" formControlName="loanName">
+            <!-- form state -->
+            <div *ngIf="addLoanTypeForm.get('loanName')?.hasError('required') && addLoanTypeForm.get('loanName')?.touched"> loan name is required</div>
+
+            <div *ngIf="addLoanTypeForm.get('loanName')?.hasError('minlength') && addLoanTypeForm.get('loanName')?.touched">minimum 10 character required</div>
+
+            <div *ngIf="addLoanTypeForm.get('loanName')?.hasError('maxlength') && addLoanTypeForm.get('loanName')?.touched">maximum 20 character required</div>
+            
+         </td>
+      </tr>
+
+***************************************************************************************
+
+//form state
+    console.log(this.addLoanTypeForm.valid)
+    console.log(this.addLoanTypeForm.invalid);
+    console.log(this.addLoanTypeForm.pending);
+    console.log(this.addLoanTypeForm.touched);
+    console.log(this.addLoanTypeForm.untouched);
+    console.log(this.addLoanTypeForm.dirty);
+    console.log(this.addLoanTypeForm.pristine);

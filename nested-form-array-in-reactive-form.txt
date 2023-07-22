@@ -1,0 +1,90 @@
+nested-form-array-in-reactive-form
+=================================
+
+add and remove the elemnt
+
+----------------------
+
+//nested formArray 
+  //1 : create a method
+  get skil():FormArray{
+    return this.addLoanTypeForm.get('skil') as FormArray;
+  }
+
+  //add new elemnt in the form 
+  addUser()
+  {
+    let userArr = this.addLoanTypeForm.get('skil') as FormArray;
+    let newUser = this.fb.group({
+      firstName:'',
+      lastName:'',
+      dept:'' 
+    });
+
+    //push the elemnt
+    userArr.push(newUser);
+  }
+
+  //remove user
+  removeUser(i)
+  {
+    let removerArr = this.addLoanTypeForm.get('skil') as FormArray;
+    removerArr.removeAt(i);
+  }
+
+-----------------------------------------------------------------
+
+<!-- using formgroup with form Array -->
+    <tr class="form-group">
+      <td>Information :</td>
+      <div formArrayName="skil">
+      <td>
+         <div *ngFor="let skill of addLoanTypeForm.get('skil')['controls'];index as i;" [formGroupName]="i">
+          <input type="text" placeholder="firstName" formControlName="firstName"> 
+          <input type="text" placeholder="lastName" formControlName="lastName">
+          <input type="text" placeholder="dept" formControlName="dept"> 
+          <!-- remove user  -->
+          <button (click)="removeUser(i)">Remove User</button>
+        
+     </div> 
+    </td>
+    </div>
+    
+    </tr>
+
+---------------------
+ <!-- add new element -->
+      <td>
+        <button (click)="addUser()">ADD NEW Skill</button>
+      </td>
+    </tr>
+
+-----------------------------------------------------
+add dynamic data
+----------------
+
+
+ <input type="text" placeholder="exp" (blur)="assignDept(i)"  formControlName="exp">
+
+***************************************************************************
+
+//dynamic add a data
+  assignDept(i)
+  {
+    console.log(i);
+    let assignArr = this.addLoanTypeForm.get('skil') as FormArray;
+    let values = assignArr.value;
+    //do operation
+    if(assignArr.value[i].exp > 5)
+    {
+      assignArr.value[i].dept = 'Sen Developer';
+    }
+    else
+    {
+      assignArr.value[i].dept = 'Jun Developer';
+
+    }
+
+  
+    this.skil.setValue(assignArr.value);
+  }

@@ -1,0 +1,91 @@
+calling function and Event in angular
+============================
+
+-->we can define in same component 
+
+function -->componet.ts
+==========
+//calling function and Event in 
+  //static value calling
+  //creating a function
+  getUserName()
+  {
+    alert("calling function");
+  }
+
+  //dynamic value we can pass 
+  //we can pass the parameter in function
+  //when we use parameter pass in the function call that time used any (lastname: any)
+
+  getLastName(lastname: any)
+  {
+    alert(lastname);
+  }
+//define a property
+info = "calling by using property"
+
+
+
+======================================================
+-->component.html
+
+<!-- calling function and Event in angular -->
+<!-- only for function -->
+<!-- 1: static value we can call -->
+<h2 class="bg-secondary">Static data</h2>
+<button (click)="getUserName()">click me</button>
+<br><br>
+
+<!-- 2: dynamic value or by using parameter -->
+<h2 class="bg-secondary">Dynamic data</h2>
+<button (click)="getLastName('patel')">clickhere</button>
+<br><br>
+
+
+<!-- 3: as a property work not as a string  -->
+<h2 class="bg-secondary">property</h2>
+<button (click)="getLastName(info)">click me</button>
+<br><br>
+
+======================================================
+Event--->component.ts
+==============
+
+//creating a event
+myEvent(value: any)
+{
+  alert(value);
+}
+
+=================================================
+-->component.html
+
+<!-- using Event  -->
+<!-- creating a (keyup) -->
+<h1 class="bg-secondary" >Event eaxmple</h1>
+<h1 class="h">keyup event</h1>
+<input type="text" (keyup)="myEvent('calling key up event')">
+<br><br>
+
+<!-- which your typing is showing in the input box -->
+<!-- 1:create a id  using # -->
+<!-- pass the id into event --textId.value -->
+<h1 class="h">create an id and showing the data</h1>
+<input type="text" #textId (keyup)="myEvent(textId.value)">
+<br><br>
+
+<!-- It is showing all the data after enter press  -->
+<!-- using (keyup.enter) and (textId1.value) -->
+<h1 class="h">keyup.enter Event</h1>
+<input type="text" #textId1 (keyup.enter)="myEvent(textId1.value)">
+<br><br>
+
+<!--  It is showing all the data after space press-->
+<h1 class="h">keyup.space Event</h1>
+<input type="text" #textId2 (keyup.space)="myEvent(textId2.value)">
+<br><br>
+
+<!-- using mouseover event -->
+<h1 class="h">Mouseover event</h1>
+<h2 (mouseover)="myEvent('calling mouseevent')">Mouseover</h2>
+

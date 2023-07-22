@@ -1,0 +1,15 @@
+mobile---->request----->presention layer(controller handle)<---->service layer(business logic process)(method on it)--->DAo/repository layer<----->Data base
+
+
+   	chromo		<-------response
+
+
+public CourseServices()
+    {
+        
+        courses.add(new Courses(1234,"Java","This is a java course..."));
+        courses.add(new Courses(1235,"Spring","This is a spring course..."));
+        courses.add(new Courses(1236,"Html","This is a Html course..."));
+        courses.add(new Courses(1237,"Css","This is a Css course..."));
+        courses.add(new Courses(1238,"Angular","This is a Angular course..."));
+    }

@@ -1,0 +1,48 @@
+ngSwitch 
+==========
+
+:-->it is comprised of two directives an attribute directive and structural  directive
+:-->it is very similler to switch statement
+:-->ngSwitch directive  hide/show html elements depending on an expression
+
+	1: start with [] --banana bracket
+	2:it is consist of three elements
+		1:ngSwitch
+		2:ngSwitchCase
+		3:ngSwitchDefault
+
+
+exmple
+========
+<!-- ngSwitch example -->
+      <h1>ngSwitch example</h1>
+      <!-- create a drop down -->
+      <select (change)="setValue($event)">
+        <!-- <select> -->
+        <option value="">Select languages</option>
+        <option value="java">Java</option>
+        <option value="angular">Angular</option>
+        <option value="sql">Sql</option>
+        <option value="html">Html</option>
+        <option value="another">Another</option>
+       </select>
+       <br><br>
+
+       <div [ngSwitch]="choose">
+        <h5 *ngSwitchCase="'java'">Java langauge</h5>
+        <h5 *ngSwitchCase="'angular'">Angular langaugeh</h5>
+        <h5 *ngSwitchCase="'sql'">Sql langauge</h5>
+        <h5 *ngSwitchCase="'html'">Html langauge</h5>
+        <h5 *ngSwitchDefault="">Default langauge</h5>
+
+
+       </div>
+*********************************************************************************
+
+//ngSwitch
+choose = "";
+
+setValue(set : any)
+{
+  this.choose=set.target.value;
+}

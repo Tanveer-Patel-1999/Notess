@@ -8,7 +8,7 @@
         - MatButtonModule
         - MatDropDownModule 
 
-defination:---> module is group of components ,drictives ,pipes,services that are related
+defination:---> module is group of components ,drictives ,pipes,services that are related to create a application
 -----------
  exm --> user  -------------------- 1:user register
 						2:user login
@@ -98,3 +98,58 @@ defination:---> module is group of components ,drictives ,pipes,services that ar
     ng generate module Opportunites
     ng generate module authentication 
 
+
+=======================================================================
+example2:
+
+defination:---> module is group of components ,drictives ,pipes,services that are related to create a applicationt 
+	
+Application =>multile module
+					1:customer
+						1:login
+						2:register
+						3:order
+						4:account
+					2:admin
+
+					3:distributor
+
+					4:vendor
+
+-->create a module
+==================
+	ng g module <module-name>
+
+-->import and export and use
+============================
+
+import
+=======
+(module cretion)
+go to cutomer.module.ts---> 
+				copy CustomerModule ---->
+								(default app module)
+								app.module.ts ---> 
+											(import)
+											go to import n paste modulename---> 
+																	and add import(click a bulb)
+
+-->use the component
+=====================
+(componet created)
+go to login.componet.ts--->
+				copy the selector <app-login> --->
+									(app.componnet.ts)
+									 and paste in app.componet.html
+
+
+--->export
+===========
+
+(module creation)
+go to customer.module.ts--->
+					(inculed export statement)
+					ending of import put , and write -->
+											exports : [
+    													LoginComponent
+ 												    ]

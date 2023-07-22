@@ -1,0 +1,30 @@
+validator in reactive form
+==============================
+
+ //formBuilder
+    this.addLoanTypeForm = this.fb.group({
+      //validation
+      loanName: new FormControl('',[
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(20)
+      ]),
+      loanType: new FormControl('',Validators.required),
+      loanDescription: new FormControl('',Validators.compose([
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(20)
+      ])),
+    })
+
+******************************
+
+//vaidator :check the form is valid or not
+    console.log(this.addLoanTypeForm.valid)
+
+********************************************
+html
+
+ <td>
+         <button (click)="addLaon()" [disabled]="!addLoanTypeForm.valid">Add Laon   </button> 
+      </td>
